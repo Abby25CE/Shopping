@@ -1,10 +1,10 @@
 import { Filters } from "./Filters";
 
-export function Header({ changeFilters }) {
+export function Header() {
   return (
     <header className="">
       <h1 className=""> React Shop</h1>
-      <Filters onChange={changeFilters} />
+      <Filters />
     </header>
   );
 }

@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { FiltersContext } from "../context/filters.jsx";
+import { useContext } from "react";
 
 export function useFilters() {
-  const [filters, setFilters] = useState({
-    category: "all",
-    minPrice: 0,
-  });
+  // const [filters, setFilters] = useState({
+  //   category: "all",
+  //   minPrice: 0,
+  // });
+
+  const { filters, setFilters } = useContext(FiltersContext);
+  console.log(filters);
+  console.log(setFilters);
 
   const filterProducts = (products) => {
     return products.filter((product) => {
@@ -15,6 +20,5 @@ export function useFilters() {
     });
   };
 
-  // Retornamos un objeto con filterProducts y setFilters
-  return { filterProducts, setFilters };
+  return { filters, filterProducts, setFilters };
 }
