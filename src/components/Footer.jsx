@@ -1,6 +1,9 @@
 import "./Footer.css";
+import { useFilters } from "../Hooks/useFilters";
 
-export function Footer({ filters }) {
+export function Footer() {
+  const { filters } = useFilters();
+
   return (
     <footer className="footer">
       {`Category: ${filters.category}, Min Price: ${filters.minPrice}`}
