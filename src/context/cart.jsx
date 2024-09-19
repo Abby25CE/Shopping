@@ -17,12 +17,18 @@ export function CartProvider({ children }) {
     setCart((prevState) => [...prevState, { ...product, quantity: 1 }]);
   };
 
+  const removeFromCart = (product) => {
+    setCart((prevState) => prevState.filter((item) => item.id !== product.id));
+  };
+
   const cleanCart = () => {
     setCart([]);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, cleanCart }}>
+    <CartContext.Provider
+      value={{ cart, removeFromCart, addToCart, cleanCart }}
+    >
       {children}
     </CartContext.Provider>
   );
