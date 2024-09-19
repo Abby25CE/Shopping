@@ -5,7 +5,7 @@ import { useCart } from "../Hooks/useCart";
 
 export function Cart() {
   const cartCheckboxId = useId();
-  const { cart } = useCart();
+  const { cart, addToCart, cleanCart, removeFromCart } = useCart();
 
   return (
     <>
@@ -21,10 +21,12 @@ export function Cart() {
               <strong>Product:</strong> {item.title} <br />
               <strong>Price:</strong> ${item.price} <br />
               <strong>Quantity:</strong> {item.quantity}
+              <button onClick={() => addToCart(item)}>+</button>
+              <button onClick={() => removeFromCart(item)}>-</button>
             </li>
           ))}
         </ul>
-        <button>
+        <button onClick={() => cleanCart()}>
           <ClearCartIcon />
         </button>
       </aside>
